@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <title>Raphael</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="bower_components/flat-ui/dist/css/flat-ui.min.css" />
@@ -22,10 +23,12 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">New Recipe<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nuovo<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">SSN</a></li>
-              <li><a href="#">Not SSN</a></li>
+              <li><a href="#">Prescrizione farmaceutica <kbd>ctrl + F</kbd></a></li>
+              <li><a href="#">Prescrizione specialistica <kbd>ctrl + E</kbd></a></li>
+              <li><a href="#">Ricetta bianca <kbd>ctrl + B</kbd></a></li>
+              <li><a href="#">Inserisci da modello <kbd>ctrl + M</kbd></a></li>
             </ul>
           </li>
         </ul>
@@ -39,12 +42,29 @@
   <div class="container">
 
     <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <h1>Raphael</h1>
-      <p>Medical prescription UX prototype</p>
-      <p>
-        <a class="btn btn-lg btn-primary" href="#" role="button">Start!</a>
-      </p>
+    <div class="help">
+      <h2>Shortcut</h2>
+      <p><kbd>ctrl + F</kbd> : Nuova prescrizione SSN farmaceutica</p>
+      <p><kbd>ctrl + E</kbd> : Nuova prescrizione SSN specialistica</p>
+      <p><kbd>ctrl + B</kbd> : Nuova ricetta bianca</p>
+      <p><kbd>ctrl + M</kbd> : Ricette da modello</p>
+    </div>
+    <div class="help">
+      <h2>Regole per prescrizione SSN farmaceutica</h2>
+      <ul>
+        <li>Farmaci in classe A o in classe C con deroga</li>
+        <li>Massimo due confezioni per ricetta salvo eccezioni</li>
+        <li>Riportare equivalenza</li>
+      </ul>
+    </div>
+    <div class="help">
+      <h2>Regole per prescrizione SSN specialistica da nomenclatore tariffario</h2>
+      <ul>
+        <li>Richiesto quesito diagnostico</li>
+        <li>Prestazioni della stessa branca specialistica</li>
+        <li>Non più di otto prestazioni, di cui al massimo tre cicli (6 con deroga). Gli eventuali
+          prelievi vanno indicati in ricetta ma non contribuiscono al computo</li>
+      </ul>
     </div>
 
   </div> <!-- /container -->
