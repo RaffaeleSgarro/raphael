@@ -1,0 +1,22 @@
+{
+  "name": "Raphael",
+  "version": "1.0.0",
+  "authors": [
+    "Raffaele Sgarro <raffaelesgarro@gmail.com>"
+  ],
+  "main": "raphael.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.8.2",
+    "bootstrap": "~3.3.4",
+    "flat-ui": "~2.2.2"
+  }
+}
