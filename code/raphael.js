@@ -1,0 +1,1 @@
+$('[data-toggle="checkbox"]').radiocheck();

@@ -8,8 +8,107 @@ h1, .h1, h2, .h2 {
 }
 
 .help {
-  margin-top: 10px;
+  margin: 10px -15px;
   background: #ECF0F1;
   border-radius: 6px;
-  padding: 10px 30px;
+  padding: 10px 15px;
+}
+
+.document {
+  margin-top: 15px;
+  margin-bottom: 45px;
+}
+
+.patient {
+  background: #2C3E50;
+  color: white;
+  border-radius: 6px;
+  padding: 10px 15px;
+}
+
+.avatar {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.avatar .name {
+  font-weight: bold;
+}
+
+.patient .field {
+  font-size: 13px;
+}
+
+.prescription {
+  font-size: 14px;
+}
+
+.prescription .prescription-header {
+  border-radius: 6px;
+  padding: 10px 15px;
+  background: #16A085;
+  color: white;
+}
+
+.prescription-line {
+  margin-top: 15px;
+  background: #ECF0F1;
+  border-radius: 6px;
+  padding: 10px 15px;
+}
+
+.prescription-line h2 {
+  color: #16A085;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.more {
+  margin-top: 15px;
+}
+
+.suggestions {
+  padding-left: 0;
+}
+
+.suggestions li {
+  color: #16A085;
+  cursor: pointer;
+}
+
+/*******************************************************************************
+ * Item-counter
+ ******************************************************************************/
+.item-counter {
+  display: inline-block;
+}
+
+.item-counter .decrement {
+  border-radius: 1em;
+  cursor: pointer;
+  display: inline-block;
+  background: #16A085;
+  color: #ECF0F1;
+  text-align: center;
+  width: 1em;
+}
+
+.item-counter .increment {
+  border-radius: 1em;
+  cursor: pointer;
+  display: inline-block;
+  background: #16A085;
+  color: #ECF0F1;
+  text-align: center;
+  width: 1em;
+  margin-right: 15px;
+}
+
+.item-counter .current-value {
+  display: inline-block;
+  text-align: center;
+  width: 1.5em;
 }

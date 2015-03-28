@@ -41,7 +41,184 @@
 
   <div class="container">
 
-    <!-- Main component for a primary marketing message or call to action -->
+
+    <div class="row document">
+      <div class="col-xs-3 patient">
+        <div class="avatar">
+          <img src="images/monkey.png" alt="avatar"/>
+          <div class="name">Nome Cognome</div>
+        </div>
+        <div class="field">CF123456789W</div>
+        <div class="field">10/01/2015</div>
+        <div class="field">4 anni e mezzo, 25kg</div>
+        <div class="field">Intollerante al cianuro</div>
+      </div>
+      <div class="col-xs-7 prescription prescription">
+        <div class="prescription-header">
+          <span class="title">Prescrizione farmaceutica #1</span>
+          <label class="checkbox" for="siss-0">
+            <input type="checkbox" id="siss-0" name="siss" data-toggle="checkbox" checked />
+            SISS
+          </label>
+          <label class="checkbox" for="dem-0">
+            <input type="checkbox" id="dem-0" name="dem" data-toggle="checkbox" checked />
+            Dematerializzata
+          </label>
+        </div>
+        <div class="prescription-line">
+          <h2>
+            <span class="item-counter">
+              <span class="decrement">-</span>
+              <span class="current-value">1</span>
+              <span class="increment">+</span>
+            </span>
+            Amoxina
+          </h2>
+          <div>Sostituibile</div>
+          <div>1cpr al giorno prima di pranzo</div>
+        </div>
+        <div class="prescription-line">
+          <h2>
+            <span class="item-counter">
+              <span class="decrement">-</span>
+              <span class="current-value">1</span>
+              <span class="increment">+</span>
+            </span>
+            Panacef
+          </h2>
+          <div>Non sostituibile (cod. motivazione 4)</div>
+          <div>1cpr al giorno prima di pranzo</div>
+        </div>
+        <div class="more pull-right">
+          <button class="btn btn-inverse btn-large"><span class="fui-search"></span> Cerca nel prontuario <kbd>ctrl + H</kbd></button>
+        </div>
+      </div>
+
+      <div class="col-xs-2">
+        Più usati
+        <ul class="suggestions">
+          <li>Amoxina</li>
+          <li>Panacef</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <div class="row document">
+      <div class="col-xs-3 patient">
+        <div class="avatar">
+          <img src="images/monkey.png" alt="avatar"/>
+          <div class="name">Nome Cognome</div>
+        </div>
+        <div class="field">CF123456789W</div>
+        <div class="field">10/01/2015</div>
+        <div class="field">4 anni e mezzo, 25kg</div>
+        <div class="field">Intollerante al cianuro</div>
+      </div>
+      <div class="col-xs-7 prescription prescription">
+        <div class="prescription-header">
+          <span class="title">Prescrizione specialistica #1</span>
+          <label class="checkbox" for="siss-1">
+            <input type="checkbox" id="siss-1" name="siss" data-toggle="checkbox" checked />
+            SISS
+          </label>
+          <label class="checkbox" for="dem-1">
+            <input type="checkbox" id="dem-1" name="dem" data-toggle="checkbox" checked />
+            Dematerializzata
+          </label>
+          <div>Sospetta anemia</div>
+          <div>Priorità differibile</div>
+          <div>Branca specialistica ancora non specificata</div>
+        </div>
+        <div class="prescription-line">
+          <h2>
+            <span class="item-counter">
+              <span class="decrement">-</span>
+              <span class="current-value">1</span>
+              <span class="increment">+</span>
+            </span>
+            Emocromo completo con formula
+          </h2>
+        </div>
+        <div class="prescription-line">
+          <h2>
+            <span class="item-counter">
+              <span class="decrement">-</span>
+              <span class="current-value">1</span>
+              <span class="increment">+</span>
+            </span>
+            Ferro
+          </h2>
+        </div>
+        <div class="prescription-line">
+          <h2>
+            <span class="item-counter">
+              <span class="decrement">-</span>
+              <span class="current-value">1</span>
+              <span class="increment">+</span>
+            </span>
+            Transferrina
+          </h2>
+        </div>
+        <div class="prescription-line">
+          <h2>
+            <span class="item-counter">
+              <span class="decrement">-</span>
+              <span class="current-value">1</span>
+              <span class="increment">+</span>
+            </span>
+            Ferritina
+          </h2>
+        </div>
+        <div class="prescription-line">
+          <h2>
+            <span class="item-counter">
+              <span class="decrement">-</span>
+              <span class="current-value">1</span>
+              <span class="increment">+</span>
+            </span>
+            Reticolociti: conteggio
+          </h2>
+        </div>
+        <div class="prescription-line">
+          <h2>
+            <span class="item-counter">
+              <span class="decrement">-</span>
+              <span class="current-value">1</span>
+              <span class="increment">+</span>
+            </span>
+            Emoglobina
+          </h2>
+        </div>
+        <div class="prescription-line">
+          <h2>
+            <span class="item-counter">
+              <span class="decrement">-</span>
+              <span class="current-value">1</span>
+              <span class="increment">+</span>
+            </span>
+            Emoglobina A2
+          </h2>
+        </div>
+        <div class="more pull-right">
+          <button class="btn btn-inverse btn-large"><span class="fui-search"></span> Cerca nel nomenclatore <kbd>ctrl + H</kbd></button>
+        </div>
+      </div>
+
+      <div class="col-xs-2">
+        Più usati
+        <ul class="suggestions">
+          <li>Ferro</li>
+          <li>Transferrina</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
     <div class="help">
       <h2>Shortcut</h2>
       <p><kbd>ctrl + F</kbd> : Nuova prescrizione SSN farmaceutica</p>
@@ -49,6 +226,7 @@
       <p><kbd>ctrl + B</kbd> : Nuova ricetta bianca</p>
       <p><kbd>ctrl + M</kbd> : Ricette da modello</p>
     </div>
+
     <div class="help">
       <h2>Regole per prescrizione SSN farmaceutica</h2>
       <ul>
@@ -57,6 +235,7 @@
         <li>Riportare equivalenza</li>
       </ul>
     </div>
+
     <div class="help">
       <h2>Regole per prescrizione SSN specialistica da nomenclatore tariffario</h2>
       <ul>
