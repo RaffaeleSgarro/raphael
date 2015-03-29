@@ -25,8 +25,8 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nuovo<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Prescrizione farmaceutica <kbd>ctrl + F</kbd></a></li>
-              <li><a href="#">Prescrizione specialistica <kbd>ctrl + E</kbd></a></li>
+              <li><a href="#" id="CreateDrugPrescription">Prescrizione farmaceutica <kbd>ctrl + F</kbd></a></li>
+              <li><a href="#" id="CreateCarePrescription">Prescrizione specialistica <kbd>ctrl + E</kbd></a></li>
               <li><a href="#">Ricetta bianca <kbd>ctrl + B</kbd></a></li>
               <li><a href="#">Inserisci da modello <kbd>ctrl + M</kbd></a></li>
             </ul>
@@ -92,9 +92,13 @@
 
       app.start({});
 
-      // TODO register key bindings and click listener on menu
-      app.trigger('createdrug');
-      app.trigger('createcare');
+      $('#CreateDrugPrescription').on('click', function(){
+        app.trigger('createdrug');
+      });
+
+      $('#CreateCarePrescription').on('click', function(){
+        app.trigger('createcare');
+      });
 
     });
   </script>
