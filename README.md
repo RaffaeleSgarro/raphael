@@ -9,6 +9,11 @@ Development
 Sources are in the code directory. You first need to install the dependencies:
 
     bower install
+    npm install
+    npm install supervisor -g
+    supervisor server.js
+
+The server binds localhost:3333
 
 Search is handled by Apache Solr. Useful commands follow:
 
