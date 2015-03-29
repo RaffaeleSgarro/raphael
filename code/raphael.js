@@ -66,10 +66,14 @@ var DrugPrescriptionView = Marionette.CompositeView.extend({
     setUpTheme(this.$el);
   },
   ui: {
-    searchBtn: '.search'
+    searchBtn: '.search',
+    removeBtn: '.removeBtn'
   },
   events: {
     'click @ui.searchBtn': 'showSearchBox'
+  },
+  triggers: {
+    'click @ui.removeBtn': 'removeprescription'
   },
   showSearchBox: function() {
     var self = this;
@@ -129,10 +133,14 @@ var CarePrescriptionView = Marionette.CompositeView.extend({
     this.collection = new CareLines();
   },
   ui: {
-    searchBtn: '.searchBtn'
+    searchBtn: '.searchBtn',
+    removeBtn: '.removeBtn'
   },
   events: {
     'click @ui.searchBtn': 'onSearchButtonClick'
+  },
+  triggers: {
+    'click @ui.removeBtn': 'removeprescription'
   },
   onSearchButtonClick: function() {
     var self = this;
@@ -318,6 +326,8 @@ var Raphael = Marionette.Application.extend({
     this.prescriptionsView = new PrescriptionsView({
       collection: this.prescriptions
     });
+
+    this.prescriptionsView.on('childview:removeprescription', self.onRemovePrescription.bind(self));
   },
 
   onStart: function(options) {
@@ -336,7 +346,12 @@ var Raphael = Marionette.Application.extend({
 
   events: {
     'createdrug': 'onCreateDrugPrescription',
-    'createcare': 'onCreateCarePrescription'
+    'createcare': 'onCreateCarePrescription',
+    'clear': 'onClear'
+  },
+
+  onRemovePrescription: function(childView) {
+    this.prescriptions.remove(childView.model);
   },
 
   onCreateDrugPrescription: function() {
@@ -357,6 +372,15 @@ var Raphael = Marionette.Application.extend({
     this.prescriptions.add(p);
     this.session.set('current', p);
     this.scrollToLastDocument();
+  },
+
+  onClear: function() {
+    var current = this.session.get('current');
+
+    this.prescriptions.reset();
+    this.session.set('current', new NoPrescription({
+      patient: current.get('patient')
+    }));
   },
 
   scrollToLastDocument: function() {

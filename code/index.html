@@ -33,7 +33,7 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Reset</a></li>
+          <li><a id="ResetPrescriptions" href="#">Reset</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -101,6 +101,10 @@
         app.trigger('createcare');
       });
 
+      $('#ResetPrescriptions').on('click', function(){
+        app.trigger('clear');
+      });
+
     });
   </script>
 
@@ -145,7 +149,7 @@
       </div>
       <div class="col-xs-7 prescription prescription">
         <div class="prescription-header">
-          <span class="title">Prescrizione farmaceutica #1</span>
+          <span class="title">Prescrizione farmaceutica #1</span><button class="btn btn-primary btn-sm pull-right removeBtn">Elimina</button>
           <label class="checkbox">
             <input type="checkbox" name="siss" data-toggle="checkbox" checked />
             SISS
@@ -199,7 +203,7 @@
       </div>
       <div class="col-xs-7 prescription prescription">
         <div class="prescription-header">
-          <span class="title">Prescrizione specialistica #1</span>
+          <span class="title">Prescrizione specialistica #1</span><button class="btn btn-primary btn-sm pull-right removeBtn">Elimina</button>
           <label class="checkbox" for="siss-1">
             <input type="checkbox" id="siss-1" name="siss" data-toggle="checkbox" checked />
             SISS
