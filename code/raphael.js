@@ -57,9 +57,11 @@ var DrugLineView = Marionette.ItemView.extend({
 var DrugPrescriptionView = Marionette.CompositeView.extend({
   model: DrugPrescription,
   template: '#DrugPrescriptionViewTpl',
-  collection: new DrugLines(),
   childView: DrugLineView,
   childViewContainer: '.lines',
+  initialize: function(options){
+    this.collection = new DrugLines();
+  },
   onRender: function() {
     setUpTheme(this.$el);
   },
@@ -120,10 +122,12 @@ var CareLineView = Marionette.ItemView.extend({
 
 var CarePrescriptionView = Marionette.CompositeView.extend({
   model: CarePrescription,
-  collection: new CareLines(),
   template: '#CarePrescriptionViewTpl',
   childView: CareLineView,
   childViewContainer: '.lines',
+  initialize: function(options){
+    this.collection = new CareLines();
+  },
   ui: {
     searchBtn: '.searchBtn'
   },
