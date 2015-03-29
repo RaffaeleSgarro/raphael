@@ -20,6 +20,7 @@
     "flat-ui": "~2.2.2",
     "typeahead.js": "~0.10.5",
     "marionette": "~2.4.1",
-    "bootbox": "~4.4.0"
+    "bootbox": "~4.4.0",
+    "jquery.scrollTo": "~2.1.0"
   }
 }

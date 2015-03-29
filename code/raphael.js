@@ -342,6 +342,7 @@ var Raphael = Marionette.Application.extend({
 
     this.prescriptions.add(p);
     this.session.set('current', p);
+    this.scrollToLastDocument();
   },
 
   onCreateCarePrescription: function() {
@@ -351,6 +352,11 @@ var Raphael = Marionette.Application.extend({
 
     this.prescriptions.add(p);
     this.session.set('current', p);
+    this.scrollToLastDocument();
+  },
+
+  scrollToLastDocument: function() {
+    $(document).scrollTo(this.prescriptionsView.children.last().$el, 'fast', {offset: -85});
   }
 
 });
