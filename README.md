@@ -10,6 +10,25 @@ Sources are in the code directory. You first need to install the dependencies:
 
     bower install
 
+Search is handled by Apache Solr. Useful commands follow:
+
+    bin/solr start
+    bin/solr create -c drugs
+    bin/solr create -c cares
+
+Upload the data from the "documents" directory to the appropriate core. Ensure:
+
+ - Request-Handler (qt) is "update/csv"
+ - Document Type is "File upload"
+ - Clear params
+
+**Don't forget to also commit changes**! From the left sidebar, select "Core Admin"
+and use the "Optimize button"
+
+To stop solr
+
+    bin/solr stop -all
+
 Data
 ====
 
