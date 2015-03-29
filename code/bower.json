@@ -17,6 +17,8 @@
   "dependencies": {
     "underscore": "~1.8.2",
     "bootstrap": "~3.3.4",
-    "flat-ui": "~2.2.2"
+    "flat-ui": "~2.2.2",
+    "typeahead.js": "~0.10.5",
+    "marionette": "~2.4.1"
   }
 }

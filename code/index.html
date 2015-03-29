@@ -41,6 +41,18 @@
 
   <div class="container">
 
+    <div class="row"><!-- START: Container to test search -->
+      <div class="col-xs-12">
+        <div id="SearchCareContainer"></div>
+      </div>
+    </div><!-- END: Container to test search -->
+
+    <div class="row"><!-- START: Container to test search -->
+      <div class="col-xs-12">
+        <div id="SearchDrugContainer"></div>
+      </div>
+    </div><!-- END: Container to test search -->
+
 
     <div class="row document">
       <div class="col-xs-3 patient">
@@ -90,7 +102,7 @@
           <div>1cpr al giorno prima di pranzo</div>
         </div>
         <div class="more pull-right">
-          <button class="btn btn-inverse btn-large"><span class="fui-search"></span> Cerca nel prontuario <kbd>ctrl + H</kbd></button>
+          <button class="btn btn-inverse btn-large"><span class="fui-search icon"></span> Cerca nel prontuario <kbd>ctrl + H</kbd></button>
         </div>
       </div>
 
@@ -203,7 +215,7 @@
           </h2>
         </div>
         <div class="more pull-right">
-          <button class="btn btn-inverse btn-large"><span class="fui-search"></span> Cerca nel nomenclatore <kbd>ctrl + H</kbd></button>
+          <button class="btn btn-inverse btn-large"><span class="fui-search icon"></span> Cerca nel nomenclatore <kbd>ctrl + H</kbd></button>
         </div>
       </div>
 
@@ -251,7 +263,39 @@
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/flat-ui/dist/js/flat-ui.min.js"></script>
+  <script src="bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
+  <script src="bower_components/backbone/backbone.js"></script>
+  <script src="bower_components/backbone.wreqr/lib/backbone.wreqr.js"></script>
+  <script src="bower_components/backbone.babysitter/lib/backbone.babysitter.js"></script>
+  <script src="bower_components/marionette/lib/backbone.marionette.js"></script>
 
   <script src="raphael.js"></script>
+
+  <script>
+    $(function(){
+      var app = new Raphael;
+
+      app.start({});
+    });
+  </script>
+  <script id="DrugSearchResultItemViewTpl" type="text/template">
+    <div class="drug"><span class="fui-heart icon"></span> <span class="title"><%= farmaco %></span> <span class="package"><%= farmaco_confezione %></span></div>
+    <div class="molecule"><%= principio_attivo %> <span class="package"><%= principio_attivo_confezione %><span class="package"></div>
+  </script>
+  <script id="DrugSearchResultTpl" type="text/template">
+    <div class="form-group">
+      <input id="SearchDrugInput" class="form-control" type="text" placeholder="Cerca il prontuario dei farmaci">
+    </div>
+    <div class="wrapper"></div>
+  </script>
+  <script id="CareSearchResultItemViewTpl" type="text/template">
+    <span class="fui-heart icon"></span> <span class="title"><%= descrizione %></span> <%= branca %>
+  </script>
+  <script id="CareSearchResultViewTpl" type="text/template">
+    <div class="form-group">
+      <input id="SearchCareInput" type="text" class="form-control" placeholder="Cerca il nomenclatore tariffario degli accertamenti" />
+    </div>
+    <div class="wrapper"></div>
+  </script>
 </body>
 </html>
