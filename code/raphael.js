@@ -51,7 +51,17 @@ var Prescriptions = Backbone.Collection.extend({
   }
 });
 
-var DrugLine = Backbone.Model.extend({});
+var DrugLine = Backbone.Model.extend({
+  defaults: {
+    quantity: 1
+  },
+  incrementQuantity: function() {
+    this.set('quantity', this.get('quantity') + 1);
+  },
+  decrementQuantity: function() {
+    this.set('quantity', this.get('quantity') - 1);
+  }
+});
 
 var DrugLines = Backbone.Collection.extend({
   model: DrugLine
@@ -62,6 +72,27 @@ var DrugLineView = Marionette.ItemView.extend({
   template: "#DrugLineViewTpl",
   attributes: {
     class: 'prescription-line'
+  },
+  ui: {
+    increment: '.increment',
+    decrement: '.decrement'
+  },
+  modelEvents: {
+    'change:quantity': 'render'
+  },
+  events: {
+    'click @ui.increment': 'incrementQuantity',
+    'click @ui.decrement': 'decrementQuantity'
+  },
+  incrementQuantity: function() {
+    this.model.incrementQuantity();
+  },
+  decrementQuantity: function() {
+    if (this.model.get('quantity') > 1) {
+      this.model.decrementQuantity();
+    } else {
+      this.trigger('remove:line');
+    }
   }
 });
 
@@ -86,6 +117,11 @@ var DrugPrescriptionView = Marionette.CompositeView.extend({
   },
   events: {
     'click @ui.searchBtn': 'showSearchBox'
+  },
+  childEvents: {
+    'remove:line': function(line) {
+      this.collection.remove(line.model);
+    }
   },
   triggers: {
     'click @ui.removeBtn': 'removeprescription'
@@ -125,7 +161,17 @@ var DrugPrescriptionView = Marionette.CompositeView.extend({
   }
 });
 
-var CareLine = Backbone.Model.extend({});
+var CareLine = Backbone.Model.extend({
+  defaults: {
+    quantity: 1
+  },
+  incrementQuantity: function() {
+    this.set('quantity', this.get('quantity') + 1);
+  },
+  decrementQuantity: function() {
+    this.set('quantity', this.get('quantity') - 1);
+  }
+});
 
 var CareLines = Backbone.Collection.extend({
   model: CareLine
@@ -136,6 +182,27 @@ var CareLineView = Marionette.ItemView.extend({
   template: '#CareLineViewTpl',
   attributes: {
     class: 'prescription-line'
+  },
+  ui: {
+    increment: '.increment',
+    decrement: '.decrement'
+  },
+  modelEvents: {
+    'change:quantity': 'render'
+  },
+  events: {
+    'click @ui.increment': 'incrementQuantity',
+    'click @ui.decrement': 'decrementQuantity'
+  },
+  incrementQuantity: function() {
+    this.model.incrementQuantity();
+  },
+  decrementQuantity: function() {
+    if (this.model.get('quantity') > 1) {
+      this.model.decrementQuantity();
+    } else {
+      this.trigger('remove:line');
+    }
   }
 });
 
@@ -154,6 +221,11 @@ var CarePrescriptionView = Marionette.CompositeView.extend({
   modelEvents: {
     'change:counter': 'render',
     'change:total': 'render'
+  },
+  childEvents: {
+    'remove:line': function(line) {
+      this.collection.remove(line.model);
+    }
   },
   events: {
     'click @ui.searchBtn': 'onSearchButtonClick'
