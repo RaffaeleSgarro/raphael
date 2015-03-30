@@ -37,6 +37,17 @@ var Prescriptions = Backbone.Collection.extend({
       case 'care': return CarePrescription;
       default: throw 'This collections can\'t contain ptype: ' + ptype;
     }
+  },
+  initialize: function() {
+    this.on('remove', this.updateChildCounter);
+    this.on('add', this.updateChildCounter);
+  },
+  updateChildCounter: function() {
+    var size = this.size();
+    this.each(function(p, index){
+      p.set('counter', index + 1);
+      p.set('total', size);
+    });
   }
 });
 
@@ -61,6 +72,10 @@ var DrugPrescriptionView = Marionette.CompositeView.extend({
   childViewContainer: '.lines',
   initialize: function(options){
     this.collection = new DrugLines();
+  },
+  modelEvents: {
+    'change:counter': 'render',
+    'change:total': 'render'
   },
   onRender: function() {
     setUpTheme(this.$el);
@@ -135,6 +150,10 @@ var CarePrescriptionView = Marionette.CompositeView.extend({
   ui: {
     searchBtn: '.searchBtn',
     removeBtn: '.removeBtn'
+  },
+  modelEvents: {
+    'change:counter': 'render',
+    'change:total': 'render'
   },
   events: {
     'click @ui.searchBtn': 'onSearchButtonClick'
@@ -356,7 +375,8 @@ var Raphael = Marionette.Application.extend({
 
   onCreateDrugPrescription: function() {
     var p = new DrugPrescription({
-      patient: this.session.get('current').get('patient')
+      patient: this.session.get('current').get('patient'),
+      counter: this.prescriptions.size() + 1
     });
 
     this.prescriptions.add(p);
@@ -366,7 +386,8 @@ var Raphael = Marionette.Application.extend({
 
   onCreateCarePrescription: function() {
     var p = new CarePrescription({
-      patient: this.session.get('current').get('patient')
+      patient: this.session.get('current').get('patient'),
+      counter: this.prescriptions.size() + 1
     });
 
     this.prescriptions.add(p);
