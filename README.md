@@ -15,12 +15,17 @@ Sources are in the code directory. You first need to install the dependencies:
 
 The server binds localhost:3333
 
+Solr
+====
+
 Search is handled by Apache Solr. Useful commands follow:
 
     bin/solr start
     bin/solr create -c drugs
     bin/solr create -c cares
 
+Two tables in CSV format are provided to initially seed the search indices.
+These files can be uploaded directly from the Solr interface at http://localhost:8983/solr
 Upload the data from the "documents" directory to the appropriate core. Ensure:
 
  - Request-Handler (qt) is "update/csv"
