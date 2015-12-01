@@ -1,22 +1,26 @@
-Raphael
-=======
+# Raphael
 
 Medical prescription UX prototype
 
-Development
-===========
+## Development
 
-Sources are in the code directory. You first need to install the dependencies:
+Sources are in the `code` directory. Dependencies are downloaded once with Bower
+and committed into source control: **it must be possible to run the project without
+running bower**.
 
-    bower install
+AJAX requires a server, so there's a simple one developed with Express. You first
+need to install the dependencies:
+
     npm install
     npm install supervisor -g
+
+and then can start it (server binds localhost:3333 by default)
+
     supervisor server.js
 
-The server binds localhost:3333
+Don't forget to also start Solr! (see below for how to run)
 
-Solr
-====
+## Solr
 
 Search is handled by Apache Solr. Useful commands follow:
 
@@ -39,8 +43,7 @@ To stop solr
 
     bin/solr stop -all
 
-Data
-====
+## Data credits
 
 - [Nomenclatore tariffario regionale Emilia-Romagna](http://salute.regione.emilia-romagna.it/documentazione/nomenclatore-tariffario-rer/nomenclatore_tariffario_rer_2014.xls/view)
 - [Agenzia del farmaco](http://www.agenziafarmaco.gov.it/it/content/dati-sulle-liste-dei-farmaci-open-data)
